@@ -1,0 +1,266 @@
+Someone Stays — Prototype Build Brief
+1. What we are building
+Someone Stays helps young people transition from child-care institutions into independent adulthood with continued support from a named, trained care navigator.
+The navigator helps with education, housing, documentation, employment and access to professional mental-health support.
+AI assists the navigator by turning conversations into draft plans, finding relevant services and summarising information. The young person participates in decisions and confirms whether promised support actually arrived.
+This is a case-competition demonstration using entirely fictional data. We need a simple, working application that makes this process visible.
+Main demonstration:
+Asha shares her needs → AI drafts a plan → navigator reviews it → Asha agrees or requests changes → a service is selected → support is tracked → Asha confirms the outcome.
+
+2. Scope and visual design
+Build a responsive web app with:
+- Four main tabs.
+- Three fictional participant profiles.
+- A toggle between Navigator view and Young person’s view.
+- Working AI buttons wherever possible.
+- Data saved between actions.
+- A Reset demo button.
+Design: white or light-grey background, navy headings, muted teal buttons, simple cards and readable text. No elaborate animations, decorative illustrations or marketing landing page.
+Header:
+Someone Stays
+Continuous support into adulthood
+Display a small, persistent label: Prototype • Fictional data
+The role switch is a demonstration feature, not real authentication.
+3. Sample profiles
+Profile	Situation	Goals and preferences
+Asha, 18	Preparing to leave a child-care institution; college admission and housing unresolved	Continue college, find housing, prefers Hindi conversations
+Kabir, 19	Recently left care; exploring vocational training	Complete documentation, find an appropriate training course
+Meera, 17	Preparing for the transition; leaving date not confirmed	Understand available options, participate in planning, discuss concerns with her navigator
+
+
+All institutions, navigators and services should be fictional.
+For Asha:
+- Navigator: Ananya
+- Backup navigator: Ravi
+- Next meeting: three days from the demo’s starting date
+- Admission deadline: unknown
+- Housing: not yet confirmed
+- Preferred language: Hindi
+Do not invent diagnoses, abuse histories or other sensitive background details.
+4. Screen One — My Young People
+This is the navigator’s starting dashboard.
+Show:
+- Participant cards with name, age and current goals.
+- Assigned navigator and backup.
+- Next contact date.
+- Pending actions.
+- Overdue actions.
+- Items awaiting the young person’s confirmation.
+Dashboard totals should come from the actual demo records.
+Clicking a profile opens:
+- Goals and preferences.
+- Recent notes.
+- Current plan and its approval status.
+- Actions and referrals.
+- Next meeting.
+AI feature: “Prepare my briefing”
+Generate a short briefing from that participant’s recorded information:
+- What they want to achieve.
+- What has changed since the last contact.
+- What remains unresolved.
+- Questions the navigator should ask next.
+Every factual point should link to its source note or action. If information is missing, say so.
+Illustrative output for Asha:
+Asha wants to continue college and prefers Hindi conversations. Housing remains unconfirmed. Her admission deadline has not been recorded. At the next meeting, clarify the deadline and discuss housing preferences.
+
+5. Screen Two — Conversation to Plan
+This is the main AI demonstration.
+Inputs
+Provide:
+- A text box for conversation notes.
+- English/Hindi language selection.
+- Load Asha’s example button.
+- Optional voice upload or recording if straightforward to implement.
+- A confirmation that the participant has agreed to processing the notes.
+Use this example:
+“I want to continue college, but I don’t know where I’ll stay. I’m nervous about leaving. I’d prefer to talk in Hindi. I haven’t checked the admission deadline yet.”
+
+Button: “Generate draft plan”
+AI should produce four sections:
+Section	Expected content
+Stated goals	Continue college; explore housing
+Expressed concerns	Nervous about leaving; uncertainty about accommodation
+Information to clarify	Admission deadline, housing budget and location preferences
+Suggested actions	Check admission requirements, discuss housing options, arrange a follow-up conversation
+
+
+Each suggestion should show the supporting phrase from the notes.
+For example:
+Suggested action: Discuss suitable housing options.
+Based on: “I don’t know where I’ll stay.”
+Proposed owner: Ananya
+Review date: To be agreed
+
+Important: the AI must not turn “I’m nervous” into an anxiety diagnosis or automatically assume counselling is wanted.
+Review workflow
+The navigator can:
+- Edit or remove suggestions.
+- Add an action.
+- Assign an owner.
+- Set a review date.
+- Approve the draft for the young person’s review.
+Plan statuses:
+Draft → Awaiting young person’s review → Agreed
+If the young person requests changes, mark the plan Changes requested and return it to the navigator.
+A navigator’s approval alone must not mark the plan as agreed.
+6. Screen Three — Find Support
+Create a small service directory for the demonstration.
+Fictional directory
+ID	Example service	Purpose
+S01	Campus Steps	College application guidance
+S02	Bridge Housing	Transitional housing enquiry
+S03	Document Desk	Help understanding documentation requirements
+S04	Skills Start	Vocational training guidance
+S05	Career Steps	Employment preparation
+S06	Listening Space	Access to a qualified counselling professional
+
+
+Each entry should contain:
+- Service ID and name.
+- Description.
+- Age range and other eligibility conditions.
+- Area served.
+- Cost information, or Unknown—confirm with provider.
+- A demo review date.
+- Availability status.
+- A clear label: Fictional demo service—not available for real referrals.
+Use fictional eligibility rules for the demonstration. Do not present them as real government provisions.
+AI feature: “Suggest relevant services”
+The AI receives the participant’s agreed needs and the supplied directory.
+For each match, show:
+- Which need it addresses.
+- Why it may fit.
+- Which eligibility conditions match.
+- What still needs checking.
+- The source service ID.
+Illustrative output:
+Bridge Housing — S02
+Relevant because Asha needs accommodation during her transition.
+Age condition matches the demo record.
+Confirm location preferences, cost and availability before proceeding.
+
+The AI must only suggest directory entries. It must return “No suitable option found in this directory” when appropriate.
+Human action: “Create referral”
+Selecting a service creates a tracked referral with:
+- Participant.
+- Service.
+- Responsible navigator.
+- Next step.
+- Review date.
+- Status.
+For this prototype, referrals are simulated. No actual booking, message or call is sent.
+7. Screen Four — Progress and Handover
+Action tracker
+Show actions in a simple table:
+Action	Owner	Review date	Status
+Confirm admission deadline	Ananya	Selected date	In progress
+Enquire about housing	Ananya	Selected date	Awaiting response
+Review housing options together	Asha and Ananya	Selected date	Planned
+
+
+Use ordinary date rules to flag overdue items. This does not require AI.
+Referral tracking
+Suggested statuses:
+Planned → Referral recorded → Appointment arranged → Awaiting participant confirmation → Support received
+The young person can choose:
+- I received the support.
+- I still need help.
+“I still need help” reopens the referral and creates a visible follow-up notification for the navigator.
+Staff must not be able to independently mark support as received by the young person.
+AI feature: “Draft handover”
+If a navigator changes, generate an editable summary containing:
+- The young person’s agreed goals.
+- Communication preferences.
+- Completed actions.
+- Outstanding commitments and dates.
+- Unresolved questions.
+- Information that needs confirmation.
+Use only recorded information and show source references.
+The current navigator reviews the handover, the incoming navigator accepts it, and the app records an agreed overlap or introduction date.
+Include Download summary or a printable view if easy to implement.
+8. Young Person’s View
+This should be simpler than the navigator dashboard.
+Show:
+My person
+- Navigator name.
+- Backup name.
+- Next meeting.
+- Request contact button.
+My plan
+- Goals in plain language.
+- What I will do.
+- What my navigator will do.
+- Review dates.
+For a pending plan:
+- This reflects what I want.
+- I would like a change.
+Requesting a change opens a text box and returns the plan to the navigator.
+My support
+Show referrals with:
+- I received the support.
+- I still need help.
+My choices
+- Request a different navigator.
+- Change my language preference.
+Contact and navigator-change requests should create visible tasks in the navigator’s view. The app should confirm that the request was recorded, without claiming anyone has already responded.
+9. AI functions to implement
+Function	Input	Output
+Conversation summary and plan drafting	Participant-approved notes	Stated needs, questions and proposed actions
+Service matching	Agreed needs + supplied directory	Relevant service IDs, reasons and eligibility unknowns
+Meeting briefing	Selected participant’s records	Concise preparation summary
+Handover drafting	Approved plan, preferences and action history	Editable continuity summary
+Translation	Selected text	Plain-language English/Hindi version
+Transcription — optional	Consented voice recording	Editable transcript for confirmation
+
+
+Use one general-purpose language model for the text functions. A separate transcription service can handle audio if needed. There is no need to train a custom model.
+AI calls should run through a backend so credentials are not exposed in the browser.
+Reusable AI instruction:
+You assist a human care navigator in a fictional prototype. Use only the supplied participant records and service directory. Distinguish recorded facts, suggestions and unknown information. Reference source notes or service IDs. Do not invent deadlines, eligibility, service availability, diagnoses or personal history. Ask for clarification when needed. All plans and recommendations are drafts requiring human review.
+
+Structured outputs should be validated before display. Reject unknown service IDs and show a clear error or retry option if an output cannot be used.
+10. Minimal data structure
+These records are enough:
+- Participant: ID, name, age, preferences, navigator, backup, next meeting.
+- Note: ID, participant ID, date, text, permission to process.
+- Plan: ID, participant ID, version, goals, questions, proposed actions, approval status, requested changes.
+- Action/referral: ID, participant ID, service ID if relevant, owner, review date, status, participant confirmation.
+- Service: ID, description, eligibility, location, cost, availability, review date.
+- Handover: participant ID, outgoing and incoming navigator, draft, approval and acceptance status.
+- Activity: timestamp, actor and action taken.
+Keep each participant’s data separate. Switching from Asha to Kabir must never show Asha’s notes or generated results.
+For a fictional demo, browser storage is sufficient. A database is optional.
+11. Live AI versus sample mode
+Ideally, the main AI features should work live.
+If API access is unavailable, implement a clearly labelled fallback:
+Sample output—illustrative, not generated live
+Only show a prepared output for its corresponding sample input. If someone changes the notes, do not pretend the same prepared answer was generated from the new text.
+A sample-mode prototype can demonstrate the workflow, but it should accurately state that live AI is not connected.
+12. Exact presentation walkthrough
+1. Open Asha’s profile.
+2. Select Conversation to Plan.
+3. Load her example notes.
+4. Generate the draft.
+5. Show goals, missing information and source excerpts.
+6. Edit an action and approve the draft as navigator.
+7. Switch to Young Person’s View and agree to the plan.
+8. Return to Find Support and generate service suggestions.
+9. Create a housing referral.
+10. Move it to Awaiting participant confirmation.
+11. Switch views and select I still need help.
+12. Show the reopened task in the navigator dashboard.
+13. Generate a handover summary.
+The central moment is step 11: the system responds to whether the young person actually received help.
+13. Completion checklist
+The prototype is ready when:
+- The four screens and both views work.
+- AI drafts are editable and clearly labelled.
+- Plans require both navigator review and young-person agreement.
+- Service suggestions use only directory records.
+- “I still need help” reopens a referral.
+- Handover summaries preserve outstanding commitments.
+- Switching profiles keeps records separate.
+- Refresh preserves the demonstration state.
+- Reset restores the fictional starting data.
+- Loading, errors and unavailable AI are explained clearly.
+Priority: complete this journey before adding extra features. A simple application with a coherent workflow will demonstrate the idea well.

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Someone Stays</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <div>
+      <h1>Someone Stays</h1>
+      <p class="tag">Continuous support into adulthood</p>
+    </div>
+    <div class="top-right">
+      <span class="proto">Prototype • Fictional data</span>
+      <span id="aiStatus" class="ai-status"></span>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="seg" id="roleSwitch"></div>
+    <label>Participant
+      <select id="pidSel"></select>
+    </label>
+    <button class="btn ghost" data-act="reset">Reset demo</button>
+    <span class="note-small">The view switch is a demonstration feature, not real authentication.</span>
+  </div>
+  <nav id="tabs" class="tabs"></nav>
+</header>
+<main id="app"></main>
+<script src="app.js"></script>
+</body>
+</html>
